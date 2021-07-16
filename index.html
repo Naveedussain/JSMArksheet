@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARKSHEET</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(190, 238, 238);
+         
+        }
+        .form-container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            width: 40%;
+            margin-top: 100px;
+            height: 110vh;
+            /* margin: 100px 0px 120px 340px; */
+            
+            
+            /* padding: 20px; */
+            text-align: center;  
+        }
+        input{
+            margin: 2%;
+            padding: 2%;
+            border-radius: 5px;
+            width: 90%;
+            text-align: center;
+            font-weight: bold;
+            color: grey;
+        }
+        .btn{
+            font-weight: bold;
+            color: white;
+            width: 100px;
+            height: 50px;
+            background-color: green;
+            border: 2px solid grey;
+            border-radius: 5px;
+            /* color: grey; */
+        }
+        @media only screen and (min-width: 300px) and (max-width: 770px){
+            form{
+                width: 100vw;
+                height: 100vh;
+            }
+        } 
+    
+    
+    </style>
+
+
+</head>
+<body>
+    <h1 style="color: grey; text-align: center;">Marksheet Using HTML CSS JS</h1>
+    <div class="form-container">
+        
+        <form>
+        <div class="form-elements">
+        <label for="name">
+            <input type="text" id="name" placeholder="Enter Your Name">
+        </label>
+    </div>
+    <div class="form-elements">
+        <label for="PhysicsMarks">
+            <input type="number" id="PhysicsMarks" placeholder="Enter Marks of Physics"> 
+        </label>
+        </div>
+        <div class="form-elements">
+        <label for="MathMarks">
+            <input type="number" id="MathMarks" placeholder="Enter Marks of Maths">
+        </label>
+        </div>
+        <div class="form-elements">
+        <label for="EnglishMarks">
+            <input type="number" id="EnglishMarks" placeholder="Enter Marks of English">
+        </label>
+        </div>
+        <div class="form-elements">
+        <label for="UrduMarks">
+            <input type="number" id="UrduMarks" placeholder="Enter Marks of Urdu">
+        </label>
+        </div>
+        <div class="form-elements">
+        <label for="IslamiatMarks">
+            <input type="number" id="IslamiatMarks" placeholder="Enter Marks of Islamiat">
+        </label>
+        </div>
+        <div class="form-elements">
+        <input type="button" class="btn" onclick="marksheet()" value="SUBMIT">
+        </div>
+        <div class="form-elements">
+            <label for="perCentage">
+                <input type="text" id="perCentage" disabled>
+            </label>
+            </div>
+            <div class="form-elements">
+                <label for="Grades">
+                    <input type="text" id="Grades" disabled >
+                </label>
+                </div>
+            <div class="form-elements">
+                <label for="footerHeading">
+                    <input type="text" id="footerHeading" disabled >
+                </label>
+                </div>
+                
+    </form>
+</div>    
+
+<script>
+    function marksheet(){
+       let name= document.getElementById("name").value;
+       let PhysicsMarks = Number(document.getElementById("PhysicsMarks").value);
+        let MathMarks =  Number(document.getElementById("MathMarks").value);
+        let EnglishMarks=  Number(document.getElementById("EnglishMarks").value);
+        let UrduMarks=  Number(document.getElementById("UrduMarks").value);
+        let IslamiatMarks=  Number(document.getElementById("IslamiatMarks").value);
+        let obtainedMarks = eval(PhysicsMarks+MathMarks+EnglishMarks+UrduMarks+IslamiatMarks);
+        let percentage = `${(obtainedMarks/500)*100}`;
+        percentage=Math.floor(percentage);
+        
+    if(percentage>=80 && percentage<100)
+    {
+        var Grades = "A-One";
+    }  
+    else if(percentage>=70 && percentage<80)
+    {
+        var Grades = "A";
+    }
+    else if(percentage>=60 && percentage<70)
+    {
+        var Grades = "B";
+    }
+    else if(percentage>=50 && percentage<60)
+    {
+        var Grades = "C";
+    }
+    else if(percentage>=40 && percentage<50)
+    {
+        var Grades = "D";
+    }
+    else{
+        document.write(`Wrong Input`)
+    }
+    document.getElementById("Grades").value = "Grade: "+Grades;
+    document.getElementById("perCentage").value ="Percentage: "+percentage+"%";
+    document.getElementById("footerHeading").value = "Marksheet of "+name;
+    }
+
+</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<html>
